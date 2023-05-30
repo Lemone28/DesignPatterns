@@ -1,16 +1,23 @@
 package com.patterns.snapshot;
 
+import com.patterns.Main;
+
 public class Editor {
     private int positionCursorX;
     private int positionCursorY;
     private int selectionLength;
     private String text;
 
-    public Editor() {
-        setCursor(0, 0);
-        setSelectionLength(0);
-        setText("");
+
+    public Editor(int positionCursorX, int positionCursorY, int selectionLength, String text) {
+        setCursor(positionCursorX, positionCursorY);
+        setSelectionLength(selectionLength);
+        setText(text);
     }
+    public Editor() {
+        this(0, 0, 0, "");
+    }
+
 
     public static class Snapshot {
         private int positionCursorX;
@@ -24,6 +31,15 @@ public class Editor {
             this.selectionLength = selectionLength;
             this.text = text;
         }
+    }
+
+    public Editor.Snapshot createSnapshot() {
+        return new Editor.Snapshot(positionCursorX, positionCursorY, selectionLength, text);
+    }
+    public void restore(Editor.Snapshot snapshot) {
+        setCursor(snapshot.positionCursorX, snapshot.positionCursorY);
+        setSelectionLength(snapshot.selectionLength);
+        setText(snapshot.text);
     }
 
     public int getPositionCursorX() {
