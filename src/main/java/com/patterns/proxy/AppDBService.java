@@ -10,6 +10,11 @@ public class AppDBService implements DBService {
     }
 
     @Override
+    public User getUser() {
+        return user;
+    }
+
+    @Override
     public void connection() {
         isConnected = true;
         System.out.println("Підключення встановлено");
@@ -17,6 +22,10 @@ public class AppDBService implements DBService {
 
     @Override
     public void execute(String query) {
-        System.out.println("Запит виконався успішно");
+        if (isConnected) {
+            System.out.println("Запит виконався успішно");
+        } else {
+            System.out.println("Немає підключення до бази даних");
+        }
     }
 }
