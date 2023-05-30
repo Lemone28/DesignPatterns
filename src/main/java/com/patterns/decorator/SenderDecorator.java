@@ -5,6 +5,7 @@ public abstract class SenderDecorator extends AbstractSender {
 
     protected SenderDecorator(Sender sender) {
         super(sender.getMessage());
+        this.sender = sender;
     }
 
     @Override
