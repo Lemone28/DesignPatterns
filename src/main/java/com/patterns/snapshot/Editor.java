@@ -12,6 +12,20 @@ public class Editor {
         setText("");
     }
 
+    public static class Snapshot {
+        private int positionCursorX;
+        private int positionCursorY;
+        private int selectionLength;
+        private String text;
+
+        Snapshot(int x, int y, int selectionLength, String text) {
+            this.positionCursorX = x;
+            this.positionCursorY = y;
+            this.selectionLength = selectionLength;
+            this.text = text;
+        }
+    }
+
     public int getPositionCursorX() {
         return positionCursorX;
     }
