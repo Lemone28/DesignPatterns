@@ -1,0 +1,12 @@
+# IntelliJ
+.idea
+.idea_modules/
+out/
+*.iws
+*.iml
+*.ipr
+modules.xml
+
+### Maven ###
+target/
+pom.xml.*
