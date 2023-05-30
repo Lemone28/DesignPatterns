@@ -2,7 +2,13 @@ package com.patterns.abstractFactory;
 
 public class WinCheckbox implements Checkbox {
     private static final String OS = "Windows";
+    private String content;
     private boolean checked;
+
+    public WinCheckbox(String content, boolean isChecked) {
+        this.content = content;
+        this.checked = false;
+    }
 
     @Override
     public String getOsStyle() {
@@ -11,7 +17,7 @@ public class WinCheckbox implements Checkbox {
 
     @Override
     public String getContent() {
-        return "Text checkbox";
+        return content;
     }
 
     @Override
