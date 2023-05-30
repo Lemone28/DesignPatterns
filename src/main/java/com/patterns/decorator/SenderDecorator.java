@@ -1,10 +1,10 @@
 package com.patterns.decorator;
 
-public abstract class SenderDecorator implements Sender {
+public abstract class SenderDecorator extends AbstractSender {
     protected Sender sender;
 
     protected SenderDecorator(Sender sender) {
-        this.sender = sender;
+        super(sender.getMessage());
     }
 
     @Override

@@ -1,8 +1,7 @@
 package com.patterns.decorator;
 
-public class MessageSender implements Sender {
-    @Override
-    public void sendMessage() {
-        System.out.println("Send message");
+public class MessageSender extends AbstractSender {
+    public MessageSender(String message) {
+        super(message);
     }
 }
