@@ -4,6 +4,10 @@ public class DBServiceAuthorizationProxy implements DBService {
     private static final AccessLevel AllowableAccessLevel = AccessLevel.SUPER_ADMIN;
     private DBService service;
 
+    public DBServiceAuthorizationProxy(User user) {
+        service = new AppDBService(user);
+    }
+
     @Override
     public User getUser() {
         return service.getUser();
@@ -19,7 +23,7 @@ public class DBServiceAuthorizationProxy implements DBService {
     }
 
     private boolean authorization() {
-        if (service.getUser().getAccessLevel().compareTo(AllowableAccessLevel) < 0) {
+        if (service.getUser().getAccessLevel().compareTo(AllowableAccessLevel) > 0) {
             return false;
         } else {
             return true;
